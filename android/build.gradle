@@ -1,0 +1,45 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    namespace "com.wellmetrix.metawear"
+    compileSdk 35
+
+    defaultConfig {
+        minSdk 23
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+repositories {
+    google()
+    mavenCentral()
+
+    // ✅ Local AARs location
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    // ✅ Pick up local MetaWear SDK and BLE Toolbox Scanner from libs/
+    implementation(name: 'metawear-4.0.0', ext: 'aar')
+    implementation(name: 'bletoolbox-scanner-0.3.2', ext: 'aar')
+
+    implementation 'com.parse.bolts:bolts-tasks:1.4.0'
+    implementation 'com.parse.bolts:bolts-applinks:1.4.0'
+    // ✅ Remote DFU dependency from Nordic
+    implementation 'no.nordicsemi.android:dfu:2.3.0'
+
+    implementation project(':capacitor-android')
+    implementation "androidx.appcompat:appcompat:1.7.0"
+    testImplementation "junit:junit:4.13.2"
+}

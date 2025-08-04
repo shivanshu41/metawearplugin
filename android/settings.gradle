@@ -1,0 +1,30 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+
+        // ✅ (Optional) KEEP this if you're using other mbientlab artifacts
+        // ivy {
+        //     url "https://mbientlab.com/releases/ivyrep"
+        //     layout "pattern", {
+        //         ivy("[organisation]/[module]/[revision]/ivys/ivy-[revision].xml")
+        //         artifact("[organisation]/[module]/[revision]/jars/[artifact]-[revision].[ext]")
+        //     }
+        //     metadataSources {
+        //         ivyDescriptor()
+        //         artifact()
+        //     }
+        // }
+
+        // ✅ ADD this for local AAR resolution
+        flatDir {
+            dirs 'libs'  // points to plugin/android/libs/
+        }
+    }
+}
+
+rootProject.name = 'MetaWearPlugin'
+
+include ':capacitor-android'
+project(':capacitor-android').projectDir = new File('../node_modules/@capacitor/android/capacitor')
