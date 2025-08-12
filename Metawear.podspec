@@ -13,5 +13,12 @@ Pod::Spec.new do |s|
   s.source_files = 'ios/Sources/**/*.{swift,h,m,c,cc,mm,cpp}'
   s.ios.deployment_target = '14.0'
   s.dependency 'Capacitor'
+  
+  # Use local MetaWear pod instead of external dependency
+  s.dependency 'MetaWear', :path => './ios/Frameworks'
+  
+  # Include any additional frameworks if needed
+  s.frameworks = 'CoreBluetooth', 'CoreMotion'
+  
   s.swift_version = '5.1'
 end

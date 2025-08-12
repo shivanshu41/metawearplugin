@@ -1,0 +1,58 @@
+{
+  "name": "MetaWear Local Dependencies Configuration",
+  "version": "1.0.0",
+  "description": "Configuration for local MetaWear SDK dependencies",
+  "dependencies": {
+    "ios": {
+      "framework": {
+        "name": "MetaWear.framework",
+        "version": "4.0.0",
+        "path": "ios/Frameworks/",
+        "downloadUrl": "https://mbientlab.com/developers/metawear/ios/",
+        "required": true,
+        "architectures": ["arm64", "x86_64"],
+        "minIosVersion": "14.0"
+      }
+    },
+    "android": {
+      "aar": [
+        {
+          "name": "metawear-4.0.0.aar",
+          "version": "4.0.0",
+          "path": "android/libs/",
+          "downloadUrl": "https://mbientlab.com/developers/metawear/android/",
+          "required": true,
+          "minSdk": 23,
+          "targetSdk": 35
+        },
+        {
+          "name": "bletoolbox-scanner-0.3.2.aar",
+          "version": "0.3.2",
+          "path": "android/libs/",
+          "downloadUrl": "https://mbientlab.com/developers/metawear/android/",
+          "required": true,
+          "minSdk": 23,
+          "targetSdk": 35
+        }
+      ]
+    }
+  },
+  "setup": {
+    "scripts": {
+      "unix": "./setup-local-sdk.sh",
+      "windows": "setup-local-sdk.bat"
+    },
+    "commands": {
+      "install": "npm install",
+      "build": "npm run build",
+      "verify": "npm run verify",
+      "clean": "npm run clean"
+    }
+  },
+  "notes": [
+    "Download SDKs from official MetaWear developer portal",
+    "Place frameworks/AARs in specified directories",
+    "Run setup script for your platform",
+    "Ensure all dependencies are properly linked"
+  ]
+} 
