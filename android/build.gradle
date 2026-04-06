@@ -14,8 +14,15 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_14
+        targetCompatibility JavaVersion.VERSION_14
+    }
+    
+    // Force Java 23 toolchain
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(23)
+        }
     }
 }
 
